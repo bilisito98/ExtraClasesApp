@@ -1,0 +1,44 @@
+﻿@model IEnumerable<ExtraClasesApp.Models.ClaseExtra>
+@{
+    ViewData["Title"] = "Lista de Clases Extras";
+}
+
+<h1 class="mb-4">Clases Extras Programadas</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Agregar Clase Extra</a>
+</p>
+
+<table class="table table-bordered table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>Fecha y Hora Tutor</th>
+            <th>Fecha y Hora Estudiante</th>
+            <th>Módulo</th>
+            <th>Lección</th>
+            <th>Estudiante</th>
+            <th>Tutor</th>
+            <th>Notificado</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.FechaHoraTutor</td>
+                <td>@item.FechaHoraEstudiante</td>
+                <td>@item.Modulo</td>
+                <td>@item.Leccion</td>
+                <td>@item.Estudiante?.NombreCompleto</td>
+                <td>@item.Tutor?.NombreCompleto</td>
+                <td>@(item.Notificado ? "Sí" : "No")</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning me-1">Editar</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info me-1">Detalles</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

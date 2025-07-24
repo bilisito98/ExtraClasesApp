@@ -1,0 +1,49 @@
+﻿# Build results
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio
+.vscode/
+.vs/
+*.dbmdl
+*.bak
+
+# ASP.NET files
+*.log
+*.tmp
+*.log.*
+*.vspscc
+*.vssscc
+
+# Configuration
+appsettings.Development.json
+appsettings.Local.json
+appsettings.*.json
+.env
+
+# Database files
+*.sqlite
+*.mdf
+*.ldf
+
+# Dependency directories
+node_modules/
+packages/
+
+# Logs
+logs/
+*.log
+
+# IDE files
+.idea/
+
+# OS files
+Thumbs.db
+.DS_Store
+ehthumbs.db

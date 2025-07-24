@@ -1,0 +1,54 @@
+﻿@model ExtraClasesApp.Models.Notificacion
+
+@{
+    ViewData["Title"] = "Registrar Notificación";
+}
+
+<h1 class="mb-4">Registrar Notificación</h1>
+
+<div class="row">
+    <div class="col-md-8">
+        <form asp-action="Create">
+            <div class="form-group mb-3">
+                <label asp-for="TutorId" class="form-label">Tutor</label>
+                <select asp-for="TutorId" class="form-control" asp-items="ViewBag.TutorId"></select>
+                <span asp-validation-for="TutorId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Asunto" class="form-label">Asunto</label>
+                <input asp-for="Asunto" class="form-control" placeholder="Ej. Confirmación, Recordatorio..." />
+                <span asp-validation-for="Asunto" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Destinatario" class="form-label">Destinatario</label>
+                <input asp-for="Destinatario" class="form-control" placeholder="Correo electrónico del destinatario" />
+                <span asp-validation-for="Destinatario" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="FechaEnvio" class="form-label">Fecha de Envío</label>
+                <input asp-for="FechaEnvio" class="form-control" type="datetime-local" />
+                <span asp-validation-for="FechaEnvio" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Mensaje" class="form-label">Mensaje</label>
+                <textarea asp-for="Mensaje" class="form-control" rows="4" placeholder="Escribe el contenido del mensaje..."></textarea>
+                <span asp-validation-for="Mensaje" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mt-4">
+                <button type="submit" class="btn btn-primary">Enviar Notificación</button>
+                <a asp-action="Index" class="btn btn-secondary ms-2">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,125 @@
+﻿/* =============================
+   RESET Y BASE
+============================= */
+html {
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+/* =============================
+   ENFOQUES Y ACCESIBILIDAD
+============================= */
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+/* =============================
+   HEADER Y LOGO
+============================= */
+.brand-wrapper {
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.logo-img {
+    width: 30px;
+    height: 30px;
+    margin-right: 8px;
+    transition: transform 0.3s ease;
+}
+
+.brand-text {
+    font-weight: bold;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.brand-hover:hover .brand-wrapper {
+    transform: scale(1.1);
+}
+
+.brand-hover:hover .brand-text {
+    color: #0d6efd; /* Azul Bootstrap */
+}
+
+/* =============================
+   TIPOGRAFÍA Y TÍTULOS
+============================= */
+h1, h2, h3 {
+    color: #4a3aff;
+    font-weight: bold;
+}
+
+/* =============================
+   FORMULARIOS
+============================= */
+.form-control {
+    border-radius: 0.375rem;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s;
+}
+
+    .form-control:focus {
+        border-color: #4a3aff;
+        box-shadow: 0 0 0 0.25rem rgba(74, 58, 255, 0.25);
+    }
+
+/* =============================
+   BOTONES
+============================= */
+
+/* Primario */
+.btn-primary {
+    background-color: #4a3aff;
+    border-color: #4a3aff;
+    transition: all 0.3s ease-in-out;
+}
+
+    .btn-primary:hover {
+        background-color: #342ac9;
+        border-color: #342ac9;
+        transform: scale(1.05);
+    }
+
+/* Secundario */
+.btn-secondary {
+    background-color: #888;
+    border-color: #888;
+}
+
+    .btn-secondary:hover {
+        background-color: #666;
+        border-color: #666;
+    }
+
+/* =============================
+   CARDS
+============================= */
+.card {
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+    .card:hover {
+        transform: scale(1.05);
+    }
+
+    .card .card-title {
+        font-size: 1.2rem;
+        color: #444;
+    }

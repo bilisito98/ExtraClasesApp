@@ -1,0 +1,26 @@
+﻿@model ExtraClasesApp.Models.Tutor
+
+@{
+    ViewData["Title"] = "Detalles del Tutor";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="card p-3">
+    <dl class="row">
+        <dt class="col-sm-3">Nombre Completo</dt>
+        <dd class="col-sm-9">@Model.NombreCompleto</dd>
+
+        <dt class="col-sm-3">Email</dt>
+        <dd class="col-sm-9">@Model.Email</dd>
+
+        <dt class="col-sm-3">Teléfono</dt>
+        <dd class="col-sm-9">@Model.Telefono</dd>
+
+        <dt class="col-sm-3">País</dt>
+        <dd class="col-sm-9">@Model.Pais</dd>
+    </dl>
+
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Editar</a>
+    <a asp-action="Index" class="btn btn-secondary">Volver a la lista</a>
+</div>

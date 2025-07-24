@@ -1,0 +1,47 @@
+﻿@model ExtraClasesApp.Models.PreferenciasTutor
+@{
+    ViewData["Title"] = "Registrar Preferencias";
+}
+
+<h1>Registrar Preferencias de Tutor</h1>
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Create">
+            <div class="form-group">
+                <label asp-for="TutorId" class="control-label">Tutor</label>
+                <select asp-for="TutorId" class="form-control" asp-items="ViewBag.TutorId"></select>
+                <span asp-validation-for="TutorId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RecibirNotificacionesSMS" class="control-label"></label>
+                <input asp-for="RecibirNotificacionesSMS" class="form-check-input ms-2" type="checkbox" />
+            </div>
+            <div class="form-group">
+                <label asp-for="RecibirNotificacionesEmail" class="control-label"></label>
+                <input asp-for="RecibirNotificacionesEmail" class="form-check-input ms-2" type="checkbox" />
+            </div>
+            <div class="form-group">
+                <label asp-for="HoraResumenDiario" class="control-label"></label>
+                <input asp-for="HoraResumenDiario" class="form-control" />
+                <span asp-validation-for="HoraResumenDiario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ZonaHoraria" class="control-label"></label>
+                <input asp-for="ZonaHoraria" class="form-control" />
+                <span asp-validation-for="ZonaHoraria" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-3">
+                <input type="submit" value="Registrar" class="btn btn-success" />
+                <a asp-action="Index" class="btn btn-secondary ms-2">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

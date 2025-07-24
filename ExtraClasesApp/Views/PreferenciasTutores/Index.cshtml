@@ -1,0 +1,40 @@
+﻿@model IEnumerable<ExtraClasesApp.Models.PreferenciasTutor>
+@{
+    ViewData["Title"] = "Preferencias de Tutores";
+}
+
+<h1 class="mb-4">Preferencias de Tutores</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Registrar Preferencias</a>
+</p>
+
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Tutor</th>
+            <th>Notificaciones SMS</th>
+            <th>Notificaciones Email</th>
+            <th>Hora Resumen Diario</th>
+            <th>Zona Horaria</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Tutor?.NombreCompleto</td>
+                <td>@(item.RecibirNotificacionesSMS ? "Sí" : "No")</td>
+                <td>@(item.RecibirNotificacionesEmail ? "Sí" : "No")</td>
+                <td>@item.HoraResumenDiario</td>
+                <td>@item.ZonaHoraria</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary">Editar</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info text-white">Detalles</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ExtraClasesApp.Models.Notificacion>
+
+@{
+    ViewData["Title"] = "Listado de Notificaciones";
+}
+
+<h1 class="mb-4">Notificaciones</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Registrar nueva notificación</a>
+</p>
+
+<table class="table table-bordered table-striped mt-3">
+    <thead class="table-dark">
+        <tr>
+            <th>Tutor</th>
+            <th>Asunto</th>
+            <th>Destinatario</th>
+            <th>Fecha de Envío</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Tutor?.NombreCompleto</td>
+                <td>@item.Asunto</td>
+                <td>@item.Destinatario</td>
+                <td>@item.FechaEnvio.ToString("g")</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">Editar</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">Detalles</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

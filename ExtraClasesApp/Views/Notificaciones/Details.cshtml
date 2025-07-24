@@ -1,0 +1,33 @@
+﻿@model ExtraClasesApp.Models.Notificacion
+
+@{
+    ViewData["Title"] = "Detalles de Notificación";
+}
+
+<h1 class="mb-4">Detalles de Notificación</h1>
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">Tutor</dt>
+            <dd class="col-sm-9">@Model.Tutor?.NombreCompleto</dd>
+
+            <dt class="col-sm-3">Asunto</dt>
+            <dd class="col-sm-9">@Model.Asunto</dd>
+
+            <dt class="col-sm-3">Destinatario</dt>
+            <dd class="col-sm-9">@Model.Destinatario</dd>
+
+            <dt class="col-sm-3">Fecha de Envío</dt>
+            <dd class="col-sm-9">@Model.FechaEnvio.ToString("f")</dd>
+
+            <dt class="col-sm-3">Mensaje</dt>
+            <dd class="col-sm-9">@Model.Mensaje</dd>
+        </dl>
+
+        <div class="mt-4">
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Editar</a>
+            <a asp-action="Index" class="btn btn-secondary ms-2">Volver al listado</a>
+        </div>
+    </div>
+</div>

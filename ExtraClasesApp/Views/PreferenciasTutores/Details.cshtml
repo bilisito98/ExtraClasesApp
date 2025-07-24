@@ -1,0 +1,26 @@
+﻿@model ExtraClasesApp.Models.PreferenciasTutor
+@{
+    ViewData["Title"] = "Detalles de Preferencias";
+}
+
+<h2>Detalles de Preferencias</h2>
+<hr />
+<dl class="row">
+    <dt class="col-sm-3">Tutor</dt>
+    <dd class="col-sm-9">@Model.Tutor?.NombreCompleto</dd>
+
+    <dt class="col-sm-3">Recibir SMS</dt>
+    <dd class="col-sm-9">@Model.RecibirNotificacionesSMS</dd>
+
+    <dt class="col-sm-3">Recibir Email</dt>
+    <dd class="col-sm-9">@Model.RecibirNotificacionesEmail</dd>
+
+    <dt class="col-sm-3">Hora Resumen</dt>
+    <dd class="col-sm-9">@Model.HoraResumenDiario</dd>
+
+    <dt class="col-sm-3">Zona Horaria</dt>
+    <dd class="col-sm-9">@Model.ZonaHoraria</dd>
+</dl>
+
+<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Editar</a>
+<a asp-action="Index" class="btn btn-secondary ms-2">Volver</a>

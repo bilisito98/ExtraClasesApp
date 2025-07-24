@@ -1,0 +1,29 @@
+﻿@model ExtraClasesApp.Models.PreferenciasTutor
+@{
+    ViewData["Title"] = "Eliminar Preferencias";
+}
+
+<h2>¿Estás seguro que deseas eliminar estas preferencias?</h2>
+<hr />
+<dl class="row">
+    <dt class="col-sm-3">Tutor</dt>
+    <dd class="col-sm-9">@Model.Tutor?.NombreCompleto</dd>
+
+    <dt class="col-sm-3">Notificaciones SMS</dt>
+    <dd class="col-sm-9">@Model.RecibirNotificacionesSMS</dd>
+
+    <dt class="col-sm-3">Notificaciones Email</dt>
+    <dd class="col-sm-9">@Model.RecibirNotificacionesEmail</dd>
+
+    <dt class="col-sm-3">Hora Resumen Diario</dt>
+    <dd class="col-sm-9">@Model.HoraResumenDiario</dd>
+
+    <dt class="col-sm-3">Zona Horaria</dt>
+    <dd class="col-sm-9">@Model.ZonaHoraria</dd>
+</dl>
+
+<form asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index" class="btn btn-secondary ms-2">Cancelar</a>
+</form>

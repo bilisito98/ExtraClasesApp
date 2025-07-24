@@ -1,0 +1,28 @@
+﻿@model ExtraClasesApp.Models.MensajeEnviado
+
+@{
+    ViewData["Title"] = "Detalles del Mensaje";
+}
+
+<h1 class="custom-title">Detalles del Mensaje</h1>
+<hr />
+<dl class="row">
+    <dt class="col-sm-3">Tipo</dt>
+    <dd class="col-sm-9">@Model.Tipo</dd>
+
+    <dt class="col-sm-3">Destinatario</dt>
+    <dd class="col-sm-9">@Model.Destinatario</dd>
+
+    <dt class="col-sm-3">Contenido</dt>
+    <dd class="col-sm-9">@Model.Contenido</dd>
+
+    <dt class="col-sm-3">Fecha Envío</dt>
+    <dd class="col-sm-9">@Model.FechaEnvio.ToString("f")</dd>
+
+    <dt class="col-sm-3">Tutor</dt>
+    <dd class="col-sm-9">@Model.Tutor?.NombreCompleto</dd>
+
+    <dt class="col-sm-3">Clase Extra</dt>
+    <dd class="col-sm-9">@Model.ClaseExtra?.Modulo</dd>
+</dl>
+<a asp-action="Index" class="btn btn-secondary">Volver</a>

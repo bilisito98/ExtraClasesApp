@@ -1,0 +1,40 @@
+﻿@model IEnumerable<ExtraClasesApp.Models.MensajeEnviado>
+
+@{
+    ViewData["Title"] = "Mensajes Enviados";
+}
+
+<h1 class="custom-title">Mensajes Enviados</h1>
+<a class="btn btn-success mb-3" asp-action="Create">Enviar Nuevo Mensaje</a>
+
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Tipo</th>
+            <th>Destinatario</th>
+            <th>Contenido</th>
+            <th>Fecha Envío</th>
+            <th>Tutor</th>
+            <th>Clase Extra</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Tipo</td>
+                <td>@item.Destinatario</td>
+                <td>@item.Contenido</td>
+                <td>@item.FechaEnvio.ToString("g")</td>
+                <td>@item.Tutor?.NombreCompleto</td>
+                <td>@item.ClaseExtra?.Modulo</td>
+                <td>
+                    <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.Id">Ver</a>
+                    <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-id="@item.Id">Editar</a>
+                    <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

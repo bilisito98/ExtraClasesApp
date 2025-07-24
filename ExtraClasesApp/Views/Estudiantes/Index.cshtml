@@ -1,0 +1,43 @@
+﻿@model IEnumerable<ExtraClasesApp.Models.Estudiante>
+
+@{
+    ViewData["Title"] = "Lista de Estudiantes";
+}
+
+<h2>Lista de Estudiantes</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Registrar nuevo estudiante</a>
+</p>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Nombre Completo</th>
+            <th>Email Padre</th>
+            <th>Teléfono Padre</th>
+            <th>País</th>
+            <th>Curso</th>
+            <th>Tutor</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var estudiante in Model)
+        {
+            <tr>
+                <td>@estudiante.NombreCompleto</td>
+                <td>@estudiante.EmailPadre</td>
+                <td>@estudiante.TelefonoPadre</td>
+                <td>@estudiante.Pais</td>
+                <td>@estudiante.Curso</td>
+                <td>@estudiante.Tutor?.NombreCompleto</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@estudiante.Id" class="btn btn-info btn-sm">Detalles</a>
+                    <a asp-action="Edit" asp-route-id="@estudiante.Id" class="btn btn-warning btn-sm">Editar</a>
+                    <a asp-action="Delete" asp-route-id="@estudiante.Id" class="btn btn-danger btn-sm">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ExtraClasesApp.Models.Tutor>
+
+@{
+    ViewData["Title"] = "Lista de Tutores";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Nombre Completo</th>
+            <th>Email</th>
+            <th>Teléfono</th>
+            <th>País</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var tutor in Model)
+        {
+            <tr>
+                <td>@tutor.NombreCompleto</td>
+                <td>@tutor.Email</td>
+                <td>@tutor.Telefono</td>
+                <td>@tutor.Pais</td>
+                <td>
+                    <a asp-controller="Tutores" asp-action="Details" asp-route-id="@tutor.Id" class="btn btn-info btn-sm">Detalles</a>
+                    <a asp-controller="Tutores" asp-action="Edit" asp-route-id="@tutor.Id" class="btn btn-warning btn-sm">Editar</a>
+                    <a asp-controller="Tutores" asp-action="Delete" asp-route-id="@tutor.Id" class="btn btn-danger btn-sm">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-controller="Tutores" asp-action="Create" class="btn btn-primary">➕ Registrar nuevo tutor</a>
+<a asp-controller="Estudiantes" asp-action="Create" class="btn btn-success">👨‍🎓 Registrar nuevo estudiante</a>
+

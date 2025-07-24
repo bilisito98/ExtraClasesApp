@@ -1,0 +1,24 @@
+﻿@model ExtraClasesApp.Models.MensajeEnviado
+
+@{
+    ViewData["Title"] = "Eliminar Mensaje";
+}
+
+<h1 class="custom-title">¿Deseas eliminar este mensaje?</h1>
+<hr />
+<dl class="row">
+    <dt class="col-sm-3">Tipo</dt>
+    <dd class="col-sm-9">@Model.Tipo</dd>
+
+    <dt class="col-sm-3">Destinatario</dt>
+    <dd class="col-sm-9">@Model.Destinatario</dd>
+
+    <dt class="col-sm-3">Fecha Envío</dt>
+    <dd class="col-sm-9">@Model.FechaEnvio.ToString("g")</dd>
+</dl>
+
+<form asp-action="DeleteConfirmed">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index" class="btn btn-secondary ms-2">Cancelar</a>
+</form>

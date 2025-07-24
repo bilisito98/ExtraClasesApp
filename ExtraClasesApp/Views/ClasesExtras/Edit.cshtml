@@ -1,0 +1,47 @@
+﻿@model ExtraClasesApp.Models.ClaseExtra
+@{
+    ViewData["Title"] = "Editar Clase Extra";
+}
+
+<h1>Editar Clase Extra</h1>
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Edit">
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group mb-2">
+                <label asp-for="FechaHoraTutor" class="control-label">Fecha y hora del tutor</label>
+                <input asp-for="FechaHoraTutor" class="form-control" type="datetime-local" />
+            </div>
+            <div class="form-group mb-2">
+                <label asp-for="FechaHoraEstudiante" class="control-label">Fecha y hora del estudiante</label>
+                <input asp-for="FechaHoraEstudiante" class="form-control" type="datetime-local" />
+            </div>
+            <div class="form-group mb-2">
+                <label asp-for="Modulo" class="control-label"></label>
+                <input asp-for="Modulo" class="form-control" />
+            </div>
+            <div class="form-group mb-2">
+                <label asp-for="Leccion" class="control-label"></label>
+                <input asp-for="Leccion" class="form-control" />
+            </div>
+            <div class="form-group mb-2">
+                <label asp-for="EstudianteId" class="control-label">Estudiante</label>
+                <select asp-for="EstudianteId" class="form-control" asp-items="ViewBag.EstudianteId"></select>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="TutorId" class="control-label">Tutor</label>
+                <select asp-for="TutorId" class="form-control" asp-items="ViewBag.TutorId"></select>
+            </div>
+            <div class="form-check mb-3">
+                <input asp-for="Notificado" class="form-check-input" />
+                <label asp-for="Notificado" class="form-check-label">¿Notificado?</label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Guardar Cambios" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-secondary ms-2">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>

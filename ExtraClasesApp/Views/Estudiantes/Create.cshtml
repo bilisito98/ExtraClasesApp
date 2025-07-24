@@ -1,0 +1,60 @@
+﻿@model ExtraClasesApp.Models.Estudiante
+
+@{
+    ViewData["Title"] = "Registrar Estudiante";
+}
+
+<h2 class="mb-4">Registrar Estudiante</h2>
+
+<div class="row">
+    <div class="col-md-8 col-lg-6">
+        <form asp-action="Create">
+            <div class="form-group mb-3">
+                <label asp-for="NombreCompleto" class="form-label"></label>
+                <input asp-for="NombreCompleto" class="form-control" />
+                <span asp-validation-for="NombreCompleto" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="EmailPadre" class="form-label"></label>
+                <input asp-for="EmailPadre" class="form-control" />
+                <span asp-validation-for="EmailPadre" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="TelefonoPadre" class="form-label"></label>
+                <input asp-for="TelefonoPadre" class="form-control" />
+                <span asp-validation-for="TelefonoPadre" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Pais" class="form-label"></label>
+                <input asp-for="Pais" class="form-control" />
+                <span asp-validation-for="Pais" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Curso" class="form-label"></label>
+                <input asp-for="Curso" class="form-control" />
+                <span asp-validation-for="Curso" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="TutorId" class="form-label">Tutor Asignado</label>
+                <select asp-for="TutorId" class="form-control" asp-items="ViewBag.TutorId"></select>
+                <span asp-validation-for="TutorId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mt-4">
+                <input type="submit" value="Registrar" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-secondary ms-2">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

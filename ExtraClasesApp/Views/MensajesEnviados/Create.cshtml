@@ -1,0 +1,58 @@
+﻿@model ExtraClasesApp.Models.MensajeEnviado
+
+@{
+    ViewData["Title"] = Model.Id == 0 ? "Nuevo Mensaje" : "Editar Mensaje";
+}
+
+<h1 class="custom-title">@ViewData["Title"]</h1>
+<hr />
+<div class="row">
+    <div class="col-md-8">
+        <form asp-action="@(Model.Id == 0 ? "Create" : "Edit")">
+            <div class="form-group mb-3">
+                <label asp-for="Tipo" class="form-label"></label>
+                <input asp-for="Tipo" class="form-control" />
+                <span asp-validation-for="Tipo" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Destinatario" class="form-label"></label>
+                <input asp-for="Destinatario" class="form-control" />
+                <span asp-validation-for="Destinatario" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Contenido" class="form-label"></label>
+                <textarea asp-for="Contenido" class="form-control"></textarea>
+                <span asp-validation-for="Contenido" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="FechaEnvio" class="form-label"></label>
+                <input asp-for="FechaEnvio" class="form-control" type="datetime-local" />
+                <span asp-validation-for="FechaEnvio" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="TutorId" class="form-label">Tutor</label>
+                <select asp-for="TutorId" class="form-select" asp-items="ViewBag.TutorId"></select>
+                <span asp-validation-for="TutorId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-4">
+                <label asp-for="ClaseExtraId" class="form-label">Clase Extra</label>
+                <select asp-for="ClaseExtraId" class="form-select" asp-items="ViewBag.ClaseExtraId"></select>
+                <span asp-validation-for="ClaseExtraId" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a asp-action="Index" class="btn btn-secondary ms-2">Cancelar</a>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
